@@ -1,0 +1,86 @@
+﻿@model IEnumerable<APRaye7.Models.ViewModels.TripVM>
+@using APRaye7.App_GlobalResources
+@using APRaye7.Shared
+@{
+    ViewBag.Title = Trips_resource.PageTitle;
+}
+@Styles.Render("~/AdminLTE/plugins/datatables/css/styles")
+@Scripts.Render("~/AdminLTE/plugins/datatables/js/scriptjavascript")
+<style>
+    
+    .buttons-csv
+    {
+    background: #337ab7 !important;
+
+    }
+    .buttons-excel 
+    {
+        background:green !important;
+    }
+    .buttons-pdf
+    {
+        background:red !important;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-push-12">
+        <div class="box" style="width:100%;">
+            @*<div class="box-header">
+
+                    <h3 class="box-title">@Resources.Trips_resource.PageTitle</h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="box-body">
+                <table id="TripsTable" class="table table-bordered table-hover">
+                    <thead>
+
+                        <tr>
+                            <th>@Trips_resource.TripID</th>
+                            <th>@Trips_resource.Departure_Time</th>
+                            <th>@Trips_resource.Seats</th>
+                            <th>@Trips_resource.Points</th>
+                            <th>@Trips_resource.FK_SourceName</th>
+                            <th>@Trips_resource.FK_DestinationName</th>
+                            <th>@Trips_resource.FK_DriverName</th>
+                            <th>@Trips_resource.CancelledTrip</th>
+                            <th>@Trips_resource.Created_At</th>
+                            <th>@Trips_resource.Updated_At</th>
+                        </tr>
+
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $.TripsUrls = {};
+    $.TripsUrls.getData = '@Url.Action("getTrips", "Trips")'
+    $.TripsUrls.getSessionControllerData = '@Url.Action("getSessionControllerUser", "Account")'
+    $.TripsUrls.Details = '@Url.Action("Details", "Trips")'
+    $.TripsUrls.Create = '@Url.Action("Create", "Trips")'
+</script>
+@Scripts.Render("~/Scripts/Trips/Trips.js")
+<script type="text/javascript">
+    if("@SessionController.User.IsAdmin" != null || "@SessionController.User.IsSuperAdmin" != null)
+    {
+        $("#AddButton").hide();
+    }
+    </script>
+@section Scripts {
+
+   
+
+    }
+
+
+

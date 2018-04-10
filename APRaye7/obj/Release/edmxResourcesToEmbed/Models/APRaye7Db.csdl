@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AP_Raye7DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="activities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trackable_id" Type="Int32" />
+    <Property Name="trackable_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="unread" Type="Boolean" />
+    <Property Name="owner_id" Type="Int32" />
+    <Property Name="owner_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="parameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="recipient_id" Type="Int32" />
+    <Property Name="recipient_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="branch">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="latitude" Type="Double" Nullable="false" />
+    <Property Name="longitude" Type="Double" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="chat_messages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sender_id" Type="Int32" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="checkpoints">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trip_id" Type="Int32" />
+    <Property Name="place_id" Type="Int32" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="clusters">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="communities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cluster_id" Type="Int32" />
+    <Property Name="place_id" Type="Int32" />
+    <Property Name="visible" Type="Boolean" />
+    <Property Name="category" Type="Int32" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="verifier" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="community_subscriptions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="community_id" Type="Int32" />
+    <Property Name="subscription_proof" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="approved" Type="Boolean" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="community_suggestions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="verifier" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="conversations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="credits">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="creditable_id" Type="Int32" />
+    <Property Name="creditable_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="delayed_jobs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="priority" Type="Int32" />
+    <Property Name="handler" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="last_error" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="run_at" Type="DateTime" Precision="3" />
+    <Property Name="locked_at" Type="DateTime" Precision="3" />
+    <Property Name="failed_at" Type="DateTime" Precision="3" />
+    <Property Name="locked_by" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="queue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="device">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="os" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="registration_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="os_version" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="feedbacks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="leavable_id" Type="Int32" />
+    <Property Name="leavable_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="messages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="conversation_id" Type="Int32" />
+    <Property Name="messagable_id" Type="Int32" />
+    <Property Name="messagable_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="payments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="points" Type="Int32" />
+    <Property Name="transaction_done" Type="Boolean" />
+    <Property Name="transaction_done_at" Type="DateTime" Precision="3" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="pickups">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="departure_time_from" Type="DateTime" Precision="3" />
+    <Property Name="departure_time_to" Type="DateTime" Precision="3" />
+    <Property Name="source_id" Type="Int32" />
+    <Property Name="destination_id" Type="Int32" />
+    <Property Name="passenger_id" Type="Int32" />
+    <Property Name="deleted" Type="Boolean" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="places">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="longitude" Type="Double" />
+    <Property Name="latitude" Type="Double" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+    <Property Name="soft_deleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ratings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="evaluator_id" Type="Int32" />
+    <Property Name="rated_id" Type="Int32" />
+    <Property Name="trip_id" Type="Int32" />
+    <Property Name="stars" Type="Int32" />
+    <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="requested_communities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="company_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="domain" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="schedules">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="repeatable_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="repeatable_id" Type="Int32" />
+    <Property Name="saturday" Type="Boolean" />
+    <Property Name="sunday" Type="Boolean" />
+    <Property Name="monday" Type="Boolean" />
+    <Property Name="tuesday" Type="Boolean" />
+    <Property Name="wednesday" Type="Boolean" />
+    <Property Name="thursday" Type="Boolean" />
+    <Property Name="friday" Type="Boolean" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="system_messages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="notifiable_type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="notifiable_id" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="trip_pickup_requests">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="trip_id" Type="Int32" />
+    <Property Name="pickup_id" Type="Int32" />
+    <Property Name="sender_id" Type="Int32" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="trips">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="departure_time" Type="DateTime" Precision="3" />
+    <Property Name="seats" Type="Int32" />
+    <Property Name="points" Type="Int32" />
+    <Property Name="source_id" Type="Int32" />
+    <Property Name="destination_id" Type="Int32" />
+    <Property Name="driver_id" Type="Int32" />
+    <Property Name="deleted" Type="Boolean" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+    <Property Name="soft_deleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="user_conversations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="conversation_id" Type="Int32" />
+    <Property Name="unread" Type="Int32" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="first_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="last_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="encrypted_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phone_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="gender" Type="Int32" />
+    <Property Name="birth_date" Type="DateTime" Precision="0" />
+    <Property Name="have_car" Type="Boolean" />
+    <Property Name="smoking" Type="Boolean" />
+    <Property Name="same_gender" Type="Boolean" />
+    <Property Name="provider" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="uid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="rating_counter" Type="Int32" />
+    <Property Name="rating" Type="Double" />
+    <Property Name="business_purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="referral_points" Type="Int32" />
+    <Property Name="referral_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="referred_by_id" Type="Int32" />
+    <Property Name="user_points" Type="Int32" />
+    <Property Name="driven_points" Type="Int32" />
+    <Property Name="ridden_points" Type="Int32" />
+    <Property Name="sms_count" Type="Int32" />
+    <Property Name="tokens" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="last_seen" Type="DateTime" Precision="3" />
+    <Property Name="reset_password_token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="reset_password_sent_at" Type="DateTime" Precision="3" />
+    <Property Name="remember_created_at" Type="DateTime" Precision="3" />
+    <Property Name="personal_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sign_in_count" Type="Int32" />
+    <Property Name="current_sign_in_at" Type="DateTime" Precision="3" />
+    <Property Name="last_sign_in_at" Type="DateTime" Precision="3" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+    <Property Name="default_work_place_id" Type="Int32" />
+    <Property Name="soft_deleted" Type="Boolean" />
+    <Property Name="image_secure_token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="time_zone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="last_sign_in_ip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_sign_in_ip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="AP_Raye7DbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="activities" EntityType="Self.activities" />
+    <EntitySet Name="branch" EntityType="Self.branch" />
+    <EntitySet Name="chat_messages" EntityType="Self.chat_messages" />
+    <EntitySet Name="checkpoints" EntityType="Self.checkpoints" />
+    <EntitySet Name="clusters" EntityType="Self.clusters" />
+    <EntitySet Name="communities" EntityType="Self.communities" />
+    <EntitySet Name="community_subscriptions" EntityType="Self.community_subscriptions" />
+    <EntitySet Name="community_suggestions" EntityType="Self.community_suggestions" />
+    <EntitySet Name="conversations" EntityType="Self.conversations" />
+    <EntitySet Name="credits" EntityType="Self.credits" />
+    <EntitySet Name="delayed_jobs" EntityType="Self.delayed_jobs" />
+    <EntitySet Name="device" EntityType="Self.device" />
+    <EntitySet Name="feedbacks" EntityType="Self.feedbacks" />
+    <EntitySet Name="messages" EntityType="Self.messages" />
+    <EntitySet Name="payments" EntityType="Self.payments" />
+    <EntitySet Name="pickups" EntityType="Self.pickups" />
+    <EntitySet Name="places" EntityType="Self.places" />
+    <EntitySet Name="ratings" EntityType="Self.ratings" />
+    <EntitySet Name="requested_communities" EntityType="Self.requested_communities" />
+    <EntitySet Name="schedules" EntityType="Self.schedules" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="system_messages" EntityType="Self.system_messages" />
+    <EntitySet Name="trip_pickup_requests" EntityType="Self.trip_pickup_requests" />
+    <EntitySet Name="trips" EntityType="Self.trips" />
+    <EntitySet Name="user_conversations" EntityType="Self.user_conversations" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <FunctionImport Name="CarbonSavings" ReturnType="Collection(Double)">
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="CarbonSavingsNoDate" ReturnType="Collection(Double)" />
+    <FunctionImport Name="DeletedPassengerTrips" ReturnType="Collection(AP_Raye7DbModel.DeletedPassengerTrips_Result)">
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="DeletedPassengerTripsNoDate" ReturnType="Collection(AP_Raye7DbModel.DeletedPassengerTripsNoDate_Result)" />
+    <FunctionImport Name="DeletedTripsPerBranch" ReturnType="Collection(AP_Raye7DbModel.DeletedTripsPerBranch_Result)">
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="DeletedTripsPerBranchNoDate" ReturnType="Collection(AP_Raye7DbModel.DeletedTripsPerBranchNoDate_Result)" />
+    <FunctionImport Name="PassengerTripsPerBranch" ReturnType="Collection(AP_Raye7DbModel.PassengerTripsPerBranch_Result)">
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="PassengerTripsPerBranchNoDate" ReturnType="Collection(AP_Raye7DbModel.PassengerTripsPerBranchNoDate_Result)" />
+    <FunctionImport Name="TopTenBranches" ReturnType="Collection(AP_Raye7DbModel.TopTenBranches_Result)">
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="TopTenBranchesNoDate" ReturnType="Collection(AP_Raye7DbModel.TopTenBranchesNoDate_Result)" />
+    <FunctionImport Name="TotalTripsPerBranch" ReturnType="Collection(AP_Raye7DbModel.TotalTripsPerBranch_Result)">
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="TotalTripsPerBranchNoDate" ReturnType="Collection(AP_Raye7DbModel.TotalTripsPerBranchNoDate_Result)" />
+    <FunctionImport Name="TripsPerBranch" ReturnType="Collection(AP_Raye7DbModel.TripsPerBranch_Result)">
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="TripsPerBranchNoDate" ReturnType="Collection(AP_Raye7DbModel.TripsPerBranchNoDate_Result)" />
+    <FunctionImport Name="UsersPerBranch" ReturnType="Collection(AP_Raye7DbModel.UsersPerBranch_Result)">
+      <Parameter Name="startDate" Mode="In" Type="DateTime" />
+      <Parameter Name="endDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="UsersPerBranchNoDate" ReturnType="Collection(AP_Raye7DbModel.UsersPerBranchNoDate_Result)" />
+  </EntityContainer>
+  <ComplexType Name="DeletedPassengerTrips_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="VisitsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="DeletedPassengerTripsNoDate_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="VisitsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="DeletedTripsPerBranch_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="VisitsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="DeletedTripsPerBranchNoDate_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="VisitsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PassengerTripsPerBranch_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="VisitsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PassengerTripsPerBranchNoDate_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="VisitsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TopTenBranches_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="VisitsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TopTenBranchesNoDate_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="VisitsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TotalTripsPerBranch_Result">
+    <Property Type="String" Name="BranchName" Nullable="true" />
+    <Property Type="Int32" Name="VisitCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TotalTripsPerBranchNoDate_Result">
+    <Property Type="String" Name="BranchName" Nullable="true" />
+    <Property Type="Int32" Name="VisitCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TripsPerBranch_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="VisitsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TripsPerBranchNoDate_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="VisitsCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="UsersPerBranch_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="UsersCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="UsersPerBranchNoDate_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Int32" Name="UsersCount" Nullable="true" />
+  </ComplexType>
+</Schema>

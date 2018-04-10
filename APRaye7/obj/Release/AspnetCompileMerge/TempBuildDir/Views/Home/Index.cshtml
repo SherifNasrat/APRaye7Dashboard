@@ -1,0 +1,479 @@
+﻿@model APRaye7.Models.ViewModels.DashBoardV1VM
+@using APRaye7.App_GlobalResources
+@{
+    ViewBag.Title = DashBoardV1.PageTitle;
+}
+@Scripts.Render("~/AdminLTE/plugins/chartjs/js/scriptjavascript")
+@Scripts.Render("~/Scripts/Home/Index.js")
+<style>
+    .chartWrapper {
+        position: relative !important;
+        overflow-x: scroll !important;
+    }
+
+        .chartWrapper > canvas {
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            pointer-events: none !important;
+        }
+
+    .chartAreaWrapper {
+        width: 15000px !important;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-2">
+
+        <div class="input-group" style="width:300px;">
+            <div class="input-group-addon" style="width:100px;">
+                <i class="fa fa-calendar"></i>
+                <label style="display:inline"><b>@DashBoardV1.StartDate</b></label>
+            </div>
+            @Html.Editor("fromPeriod", new { htmlAttributes = new { @class = "form-control", @id = "fromPeriod_picker", @type = "text" } })
+        </div>
+    </div>
+</div> <!-- From Period Drop Down-->
+<br />
+<div class="row">
+    <div class="col-xs-2">
+        <div class="input-group" style="width:300px;">
+            <div class="input-group-addon" style="width:104px;">
+                <i class="fa fa-calendar"></i>
+                <label style="display:inline"><b>@DashBoardV1.EndDate</b></label>
+            </div>
+            @Html.Editor("toPeriod", new { htmlAttributes = new { @class = "form-control", @id = "toPeriod_picker", @type = "text" } })
+        </div>
+    </div>
+</div> <!-- To Period Drop Down-->
+<br />
+<div class="row">
+    <div class="col-md-5">
+        <button type="button" class="btn btn-info btn-flat" id="RunDashBoard" style="width:300px">Go!</button>
+    </div>
+</div> <!-- Go button-->
+<br />
+@*<div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-car"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@DashBoardV1.TodayTrips</span>
+                    <span class="info-box-number">@Model.NumberOfTripsToday</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-map-signs"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@DashBoardV1.MostVisitedDestination</span>
+                    <span class="info-box-number">@Model.MostVisitedPlace</span>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-user"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@DashBoardV1.UserWithMostTrips</span>
+                    <span class="info-box-number">@Model.UserWithMostTrips</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">@DashBoardV1.UsersCount</span>
+                    <span class="info-box-number">@Model.TotalNumberOfUsers</span>
+                </div>
+            </div>
+        </div>
+    </div>*@ <!-- Static Texts-->
+<div class="row">
+    <div class="col-lg-3 col-xs-6">
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <h3 id="KilometersMade"></h3>
+                <p>Total Kilometers Made</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-clock"></i>
+            </div>
+
+        </div>
+    </div> <!--Total Kilometers Made-->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+            <div class="inner">
+                <h3 id="CarbonSavingsheader"></h3>
+                <p>USD Per Ton</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-social-usd"></i>
+            </div>
+        </div>
+    </div> <!--Environmental Saving-->
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.MaleVsFemalePieChart</h3>
+                @*<div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="chart-responsive">
+                            <canvas id="MaleFemalePieChart" width="500" height="200"></canvas>
+                        </div>
+                    </div>
+                    @*<div class="col-md-4">
+                            <ul class="chart-legend clearfix">
+                                <li><i class="fa fa-circle-o" style="color:#0026ff"></i>@DashBoardV1.NumOfMales</li>
+                                <li><i class="fa fa-circle-o" style="color:#FF6384"></i>@DashBoardV1.NumOfFemales</li>
+                            </ul>
+                        </div>*@
+                </div>
+            </div>
+            <div class="box-footer no-padding">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a>
+                            @DashBoardV1.NumOfMales
+                            <span class="pull-right" style="color:#0026ff" id="MalesPercentageli">@Model.MaleUsersPercentage%</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>@DashBoardV1.NumOfFemales<span class="pull-right" style="color:#FF6384" id="FemalesPercentageli">@Model.FemaleUsersPercentage% </span></a>
+                    </li>
+                </ul>
+            </div>
+        </div> <!-- Male vs. Female Pie Chart-->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.HaveCarPieChart</h3>
+                @*<div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="chart-responsive">
+                            <canvas id="HaveCarPieChart" width="500" height="200"></canvas>
+                        </div>
+                    </div>
+                    @*<div class="col-md-4">
+                            <ul class="chart-legend clearfix">
+                                <li><i class="fa fa-circle-o" style="color:#ff0000"></i>@DashBoardV1.UserWithCars</li>
+                                <li><i class="fa fa-circle-o" style="color:#00ff21"></i>@DashBoardV1.UsersWithoutCars</li>
+                            </ul>
+                        </div>*@
+                </div>
+            </div>
+            <div class="box-footer no-padding">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a>
+                            @DashBoardV1.UserWithCars
+                            <span class="pull-right" style="color:#ff0000" id="UsersWithCarli">@Model.UsersWithCarPercentage%</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>@DashBoardV1.UsersWithoutCars<span class="pull-right" style="color:#00ff21" id="UsersWithoutCarli">@Model.UsersWithoutCarPercentage% </span></a>
+                    </li>
+                </ul>
+            </div>
+        </div> <!-- Cars vs. No Cars Pie Chart-->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.ActivevsInActivePieChart</h3>
+                @*<div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="chart-responsive">
+                            <canvas id="ActiveInActiveUsersPieChart" width="500" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer no-padding">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a>
+                            @DashBoardV1.ActiveUsers
+                            <span class="pull-right" style="color:#ffd800" id="activeusersli"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>@DashBoardV1.InActiveUsers<span class="pull-right" style="color:#0026ff" id="inactiveusersli"> </span></a>
+                    </li>
+                </ul>
+            </div>
+        </div> <!-- Active vs. InActive Pie Chart-->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.TripsvsRecurrentTripsPieChart</h3>
+                @*<div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="chart-responsive">
+                            <canvas id="TripsvsRecurrentPieChart" width="500" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer no-padding">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a>
+                            @DashBoardV1.TotalTrips
+                            <span class="pull-right" style="color:#000000" id="tripsli"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>@DashBoardV1.RecurrentTrips<span class="pull-right" style="color:#2e0b0b" id="recurrentli"> </span></a>
+                    </li>
+                </ul>
+            </div>
+        </div> <!-- Trips vs. Recurrent Trips Pie Chart-->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.TripsvsRecurrentTripsPieChart</h3>
+                @*<div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="chart-responsive">
+                            <canvas id="TripsStatusPieChart" width="500" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer no-padding">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a>
+                            @DashBoardV1.AcceptedTrips
+                            <span class="pull-right" style="color:#9fdd45" id="acceptedtripsli"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>@DashBoardV1.InvitedTrips<span class="pull-right" style="color:#33d494" id="invitedtripsli"> </span></a>
+                    </li>
+                    <li>
+                        <a>
+                            @DashBoardV1.RequestedTrips
+                            <span class="pull-right" style="color:#554393" id="requestedtripsli"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div> <!--Trips Status Pie Chart-->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.PointsSystem</h3>
+                @*<div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="chart-responsive">
+                            <canvas id="PointsSystemPieChart" width="500" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer no-padding">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a>
+                            @DashBoardV1.UserPoints
+                            <span class="pull-right" style="color:#ff0000" id="upli"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>@DashBoardV1.DrivenPoints<span class="pull-right" style="color:#0fcb2a" id="dpli"> </span></a>
+                    </li>
+                    <li>
+                        <a>
+                            @DashBoardV1.RiddenPoints
+                            <span class="pull-right" style="color:#0026ff" id="rpli"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div> <!--Points System Pie Chart-->
+
+    </div>
+    <div class="col-lg-8">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.TotalTripsPerBranchChart</h3>
+                @*<div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="chartWrapper">
+                            <div class="chartAreaWrapper">
+                                <div class="chart-responsive">
+                                    <canvas id="TotalTripsPerBranchBarChart" width="500" height="500"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--Total Trips Per Branch Bar Chart-->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.TripsPerBranchChart</h3>
+                @*<div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="chartWrapper">
+                            <div class="chartAreaWrapper">
+                                <div class="chart-responsive">
+                                    <canvas id="TripsPerBranchBarChart" width="500" height="500"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--Trips Per Branch Bar Chart-->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.PassengerTripsPerBranchChart</h3>
+                @*<div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="chartWrapper">
+                            <div class="chartAreaWrapper">
+                                <div class="chart-responsive">
+                                    <canvas id="PassengerTripsPerBranchBarChart" width="500" height="500"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--Trips Per Branch Bar Chart-->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.UsersPerBranchChart</h3>
+                @*<div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="chartWrapper">
+                            <div class="chartAreaWrapper">
+                                <div class="chart-responsive">
+                                    <canvas id="UsersPerBranchBarChart" width="500" height="500"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--Users Per Branch Bar Chart-->
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.TopTenChart</h3>
+                @*<div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>*@
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="chart-responsive">
+                            <canvas id="TopTenVisitedBarChart" width="500" height="500"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!--Top Ten Branches Chart-->
+
+
+    </div> <!-- Bar Chart-->
+</div>
+

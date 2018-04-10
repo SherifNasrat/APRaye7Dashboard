@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CIBAdminsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChangeLog">
+    <Key>
+      <PropertyRef Name="ChangeLogId" />
+    </Key>
+    <Property Name="ChangeLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_SystemUserID" Type="int" Nullable="false" />
+    <Property Name="Action" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Entity" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FK_RecordID" Type="int" Nullable="false" />
+    <Property Name="LogDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChangeLogDetails">
+    <Key>
+      <PropertyRef Name="ChangeLogDetailsId" />
+    </Key>
+    <Property Name="ChangeLogDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_ChangeLogID" Type="int" Nullable="false" />
+    <Property Name="Field" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PreviousValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NewValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DetailDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SystemUser">
+    <Key>
+      <PropertyRef Name="SystemUserID" />
+    </Key>
+    <Property Name="SystemUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsUser" Type="bit" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="IsSuperAdmin" Type="bit" />
+    <Property Name="PersonalImage" Type="nvarchar(max)" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="FK_Addedby" Type="int" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="FK_LastModifiedBy" Type="int" />
+    <Property Name="SecureToken" Type="nvarchar(max)" />
+    <Property Name="SecureTokenExpiryTime" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_ChangeLog_SystemUser">
+    <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="1" />
+    <End Role="ChangeLog" Type="Self.ChangeLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUser">
+        <PropertyRef Name="SystemUserID" />
+      </Principal>
+      <Dependent Role="ChangeLog">
+        <PropertyRef Name="FK_SystemUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChangeLogDetails_ChangeLog">
+    <End Role="ChangeLog" Type="Self.ChangeLog" Multiplicity="1" />
+    <End Role="ChangeLogDetails" Type="Self.ChangeLogDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChangeLog">
+        <PropertyRef Name="ChangeLogId" />
+      </Principal>
+      <Dependent Role="ChangeLogDetails">
+        <PropertyRef Name="FK_ChangeLogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CIBAdminsModelStoreContainer">
+    <EntitySet Name="ChangeLog" EntityType="Self.ChangeLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChangeLogDetails" EntityType="Self.ChangeLogDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemUser" EntityType="Self.SystemUser" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ChangeLog_SystemUser" Association="Self.FK_ChangeLog_SystemUser">
+      <End Role="SystemUser" EntitySet="SystemUser" />
+      <End Role="ChangeLog" EntitySet="ChangeLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChangeLogDetails_ChangeLog" Association="Self.FK_ChangeLogDetails_ChangeLog">
+      <End Role="ChangeLog" EntitySet="ChangeLog" />
+      <End Role="ChangeLogDetails" EntitySet="ChangeLogDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

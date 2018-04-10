@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AP_Raye7DbModelStoreContainer" CdmEntityContainer="AP_Raye7DbEntities">
+    <EntitySetMapping Name="activities">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.activities">
+        <MappingFragment StoreEntitySet="activities">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="trackable_id" ColumnName="trackable_id" />
+          <ScalarProperty Name="trackable_type" ColumnName="trackable_type" />
+          <ScalarProperty Name="unread" ColumnName="unread" />
+          <ScalarProperty Name="owner_id" ColumnName="owner_id" />
+          <ScalarProperty Name="owner_type" ColumnName="owner_type" />
+          <ScalarProperty Name="key" ColumnName="key" />
+          <ScalarProperty Name="parameters" ColumnName="parameters" />
+          <ScalarProperty Name="recipient_id" ColumnName="recipient_id" />
+          <ScalarProperty Name="recipient_type" ColumnName="recipient_type" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="branch">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.branch">
+        <MappingFragment StoreEntitySet="branch">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chat_messages">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.chat_messages">
+        <MappingFragment StoreEntitySet="chat_messages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="checkpoints">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.checkpoints">
+        <MappingFragment StoreEntitySet="checkpoints">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+          <ScalarProperty Name="place_id" ColumnName="place_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clusters">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.clusters">
+        <MappingFragment StoreEntitySet="clusters">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="communities">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.communities">
+        <MappingFragment StoreEntitySet="communities">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="cluster_id" ColumnName="cluster_id" />
+          <ScalarProperty Name="place_id" ColumnName="place_id" />
+          <ScalarProperty Name="visible" ColumnName="visible" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="verifier" ColumnName="verifier" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="community_subscriptions">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.community_subscriptions">
+        <MappingFragment StoreEntitySet="community_subscriptions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="community_id" ColumnName="community_id" />
+          <ScalarProperty Name="subscription_proof" ColumnName="subscription_proof" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="approved" ColumnName="approved" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="community_suggestions">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.community_suggestions">
+        <MappingFragment StoreEntitySet="community_suggestions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="verifier" ColumnName="verifier" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="conversations">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.conversations">
+        <MappingFragment StoreEntitySet="conversations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="credits">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.credits">
+        <MappingFragment StoreEntitySet="credits">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="creditable_id" ColumnName="creditable_id" />
+          <ScalarProperty Name="creditable_type" ColumnName="creditable_type" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="delayed_jobs">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.delayed_jobs">
+        <MappingFragment StoreEntitySet="delayed_jobs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+          <ScalarProperty Name="handler" ColumnName="handler" />
+          <ScalarProperty Name="last_error" ColumnName="last_error" />
+          <ScalarProperty Name="run_at" ColumnName="run_at" />
+          <ScalarProperty Name="locked_at" ColumnName="locked_at" />
+          <ScalarProperty Name="failed_at" ColumnName="failed_at" />
+          <ScalarProperty Name="locked_by" ColumnName="locked_by" />
+          <ScalarProperty Name="queue" ColumnName="queue" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="device">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.device">
+        <MappingFragment StoreEntitySet="device">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="os" ColumnName="os" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="registration_id" ColumnName="registration_id" />
+          <ScalarProperty Name="os_version" ColumnName="os_version" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedbacks">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.feedbacks">
+        <MappingFragment StoreEntitySet="feedbacks">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="leavable_id" ColumnName="leavable_id" />
+          <ScalarProperty Name="leavable_type" ColumnName="leavable_type" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messages">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.messages">
+        <MappingFragment StoreEntitySet="messages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="conversation_id" ColumnName="conversation_id" />
+          <ScalarProperty Name="messagable_id" ColumnName="messagable_id" />
+          <ScalarProperty Name="messagable_type" ColumnName="messagable_type" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.payments">
+        <MappingFragment StoreEntitySet="payments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="points" ColumnName="points" />
+          <ScalarProperty Name="transaction_done" ColumnName="transaction_done" />
+          <ScalarProperty Name="transaction_done_at" ColumnName="transaction_done_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pickups">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.pickups">
+        <MappingFragment StoreEntitySet="pickups">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="departure_time_from" ColumnName="departure_time_from" />
+          <ScalarProperty Name="departure_time_to" ColumnName="departure_time_to" />
+          <ScalarProperty Name="source_id" ColumnName="source_id" />
+          <ScalarProperty Name="destination_id" ColumnName="destination_id" />
+          <ScalarProperty Name="passenger_id" ColumnName="passenger_id" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="places">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.places">
+        <MappingFragment StoreEntitySet="places">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="soft_deleted" ColumnName="soft_deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ratings">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.ratings">
+        <MappingFragment StoreEntitySet="ratings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="evaluator_id" ColumnName="evaluator_id" />
+          <ScalarProperty Name="rated_id" ColumnName="rated_id" />
+          <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+          <ScalarProperty Name="stars" ColumnName="stars" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="requested_communities">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.requested_communities">
+        <MappingFragment StoreEntitySet="requested_communities">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="domain" ColumnName="domain" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schedules">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.schedules">
+        <MappingFragment StoreEntitySet="schedules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="repeatable_type" ColumnName="repeatable_type" />
+          <ScalarProperty Name="repeatable_id" ColumnName="repeatable_id" />
+          <ScalarProperty Name="saturday" ColumnName="saturday" />
+          <ScalarProperty Name="sunday" ColumnName="sunday" />
+          <ScalarProperty Name="monday" ColumnName="monday" />
+          <ScalarProperty Name="tuesday" ColumnName="tuesday" />
+          <ScalarProperty Name="wednesday" ColumnName="wednesday" />
+          <ScalarProperty Name="thursday" ColumnName="thursday" />
+          <ScalarProperty Name="friday" ColumnName="friday" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="system_messages">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.system_messages">
+        <MappingFragment StoreEntitySet="system_messages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="notifiable_type" ColumnName="notifiable_type" />
+          <ScalarProperty Name="notifiable_id" ColumnName="notifiable_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trip_pickup_requests">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.trip_pickup_requests">
+        <MappingFragment StoreEntitySet="trip_pickup_requests">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="trip_id" ColumnName="trip_id" />
+          <ScalarProperty Name="pickup_id" ColumnName="pickup_id" />
+          <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trips">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.trips">
+        <MappingFragment StoreEntitySet="trips">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="departure_time" ColumnName="departure_time" />
+          <ScalarProperty Name="seats" ColumnName="seats" />
+          <ScalarProperty Name="points" ColumnName="points" />
+          <ScalarProperty Name="source_id" ColumnName="source_id" />
+          <ScalarProperty Name="destination_id" ColumnName="destination_id" />
+          <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="soft_deleted" ColumnName="soft_deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_conversations">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.user_conversations">
+        <MappingFragment StoreEntitySet="user_conversations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="conversation_id" ColumnName="conversation_id" />
+          <ScalarProperty Name="unread" ColumnName="unread" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="AP_Raye7DbModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="encrypted_password" ColumnName="encrypted_password" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+          <ScalarProperty Name="have_car" ColumnName="have_car" />
+          <ScalarProperty Name="smoking" ColumnName="smoking" />
+          <ScalarProperty Name="same_gender" ColumnName="same_gender" />
+          <ScalarProperty Name="provider" ColumnName="provider" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="rating_counter" ColumnName="rating_counter" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="business_purpose" ColumnName="business_purpose" />
+          <ScalarProperty Name="referral_points" ColumnName="referral_points" />
+          <ScalarProperty Name="referral_id" ColumnName="referral_id" />
+          <ScalarProperty Name="referred_by_id" ColumnName="referred_by_id" />
+          <ScalarProperty Name="user_points" ColumnName="user_points" />
+          <ScalarProperty Name="driven_points" ColumnName="driven_points" />
+          <ScalarProperty Name="ridden_points" ColumnName="ridden_points" />
+          <ScalarProperty Name="sms_count" ColumnName="sms_count" />
+          <ScalarProperty Name="tokens" ColumnName="tokens" />
+          <ScalarProperty Name="last_seen" ColumnName="last_seen" />
+          <ScalarProperty Name="reset_password_token" ColumnName="reset_password_token" />
+          <ScalarProperty Name="reset_password_sent_at" ColumnName="reset_password_sent_at" />
+          <ScalarProperty Name="remember_created_at" ColumnName="remember_created_at" />
+          <ScalarProperty Name="personal_image" ColumnName="personal_image" />
+          <ScalarProperty Name="sign_in_count" ColumnName="sign_in_count" />
+          <ScalarProperty Name="current_sign_in_at" ColumnName="current_sign_in_at" />
+          <ScalarProperty Name="last_sign_in_at" ColumnName="last_sign_in_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="default_work_place_id" ColumnName="default_work_place_id" />
+          <ScalarProperty Name="soft_deleted" ColumnName="soft_deleted" />
+          <ScalarProperty Name="image_secure_token" ColumnName="image_secure_token" />
+          <ScalarProperty Name="time_zone" ColumnName="time_zone" />
+          <ScalarProperty Name="last_sign_in_ip" ColumnName="last_sign_in_ip" />
+          <ScalarProperty Name="current_sign_in_ip" ColumnName="current_sign_in_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CarbonSavings" FunctionName="AP_Raye7DbModel.Store.CarbonSavings" />
+    <FunctionImportMapping FunctionImportName="CarbonSavingsNoDate" FunctionName="AP_Raye7DbModel.Store.CarbonSavingsNoDate" />
+    <FunctionImportMapping FunctionImportName="DeletedPassengerTrips" FunctionName="AP_Raye7DbModel.Store.DeletedPassengerTrips">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.DeletedPassengerTrips_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VisitsCount" ColumnName="VisitsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeletedPassengerTripsNoDate" FunctionName="AP_Raye7DbModel.Store.DeletedPassengerTripsNoDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.DeletedPassengerTripsNoDate_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VisitsCount" ColumnName="VisitsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeletedTripsPerBranch" FunctionName="AP_Raye7DbModel.Store.DeletedTripsPerBranch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.DeletedTripsPerBranch_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VisitsCount" ColumnName="VisitsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeletedTripsPerBranchNoDate" FunctionName="AP_Raye7DbModel.Store.DeletedTripsPerBranchNoDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.DeletedTripsPerBranchNoDate_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VisitsCount" ColumnName="VisitsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PassengerTripsPerBranch" FunctionName="AP_Raye7DbModel.Store.PassengerTripsPerBranch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.PassengerTripsPerBranch_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VisitsCount" ColumnName="VisitsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PassengerTripsPerBranchNoDate" FunctionName="AP_Raye7DbModel.Store.PassengerTripsPerBranchNoDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.PassengerTripsPerBranchNoDate_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VisitsCount" ColumnName="VisitsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TopTenBranches" FunctionName="AP_Raye7DbModel.Store.TopTenBranches">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.TopTenBranches_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VisitsCount" ColumnName="VisitsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TopTenBranchesNoDate" FunctionName="AP_Raye7DbModel.Store.TopTenBranchesNoDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.TopTenBranchesNoDate_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VisitsCount" ColumnName="VisitsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TotalTripsPerBranch" FunctionName="AP_Raye7DbModel.Store.TotalTripsPerBranch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.TotalTripsPerBranch_Result">
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TotalTripsPerBranchNoDate" FunctionName="AP_Raye7DbModel.Store.TotalTripsPerBranchNoDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.TotalTripsPerBranchNoDate_Result">
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TripsPerBranch" FunctionName="AP_Raye7DbModel.Store.TripsPerBranch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.TripsPerBranch_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VisitsCount" ColumnName="VisitsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TripsPerBranchNoDate" FunctionName="AP_Raye7DbModel.Store.TripsPerBranchNoDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.TripsPerBranchNoDate_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VisitsCount" ColumnName="VisitsCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UsersPerBranch" FunctionName="AP_Raye7DbModel.Store.UsersPerBranch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.UsersPerBranch_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UsersCount" ColumnName="UsersCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UsersPerBranchNoDate" FunctionName="AP_Raye7DbModel.Store.UsersPerBranchNoDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AP_Raye7DbModel.UsersPerBranchNoDate_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UsersCount" ColumnName="UsersCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

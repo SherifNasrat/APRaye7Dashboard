@@ -1,0 +1,79 @@
+﻿@using APRaye7.App_GlobalResources
+@{
+    ViewBag.Title = SystemUser_resource.ChangeLog;
+}
+@Styles.Render("~/AdminLTE/plugins/datatables/css/styles")
+@Scripts.Render("~/AdminLTE/plugins/datatables/js/scriptjavascript")
+@Scripts.Render("~/Scripts/ChangeLogs/ChangeLogs.js")
+<style>
+    .table {
+        width: 100% !important;
+    }
+
+    .dataTables_scrollHeadInner {
+        width: 100% !important;
+    }
+
+    .dataTables_scrollFootInner {
+        width: 100% !important;
+    }
+    .buttons-csv
+    {
+    background: #337ab7 !important;
+
+    }
+    .buttons-excel 
+    {
+        background:green !important;
+    }
+    .buttons-pdf
+    {
+        background:red !important;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-push-12">
+        <div class="box" style="width:100%;">
+            @*<div class="box-header">
+
+                    <h3 class="box-title">@Resources.Users_resource.PageTitle</h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="box-body">
+                <table id="ChangeLogsTable" class="table table-striped table-hover" style="width:100% !important">
+                    <thead>
+
+                        <tr>
+                            <th>@SystemUser_resource.ChangeLogID</th>
+                            <th>@SystemUser_resource.UserName</th>
+                            <th>@SystemUser_resource.Action</th>
+                            <th>@SystemUser_resource.Entity</th>
+                            <th>@SystemUser_resource.RecordID</th>
+                            <th>@SystemUser_resource.Date</th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $.ChangeLogsUrls = {};
+    $.ChangeLogsUrls.getData = '@Url.Action("getAllChangeLogs", "ChangeLogs")'
+    $.ChangeLogsUrls.Details = '@Url.Action("Details", "ChangeLogs")'
+
+</script>
+@section Scripts {
+
+}

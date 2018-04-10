@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e52c8d8939604521a87988d3341234d7" Name="Diagram1">
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Activity" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Branch" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.ChatMessage" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Checkpoint" Width="1.5" PointX="14.25" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Cluster" Width="1.5" PointX="1.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Community" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.CommunitySubscription" Width="1.5" PointX="6" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.CommunitySuggestion" Width="1.5" PointX="3" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Conversation" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Credit" Width="1.5" PointX="3" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.DelayedJob" Width="1.5" PointX="3.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Device" Width="1.5" PointX="3" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Feedback" Width="1.5" PointX="3" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Message" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Payment" Width="1.5" PointX="3" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Pickup" Width="1.5" PointX="6" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Place" Width="1.5" PointX="1.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Rating" Width="1.5" PointX="6" PointY="30.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.RequestedCommunity" Width="1.5" PointX="3" PointY="48.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Schedule" Width="1.5" PointX="11.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.sysdiagram" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.SystemMessage" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.Trip" Width="1.5" PointX="9" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.TripPickupRequest" Width="1.5" PointX="11.25" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.User" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.UserConversation" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.UserFavoritePlace" Width="1.5" PointX="9" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AP_Raye7DbModel.CommunityTemp" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_ChatMessage_UserID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Message_ChatMessageID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Checkpoint_Place" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Checkpoint_Trip" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Community_Cluster" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Community_Place" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_CommunitySubscriptions_Community" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Pickup_BranchDestination" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Pickup_BranchSource" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Trip_BranchDestination" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Trip_BranchSource" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_CommunitySubscriptions_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_CommunitySuggestion_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_UserConversation_ConversationID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Credit_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Device_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Feedbacks_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Message_SystemMessageID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Payment_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Pickup_DestinationID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Pickup_PassengerID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Pickup_SourceID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Schedule_PickupID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_TripPickupRequest_PickupID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Trip_Destination" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Trip_Source" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_UserFavoritePlace_Place" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Rating_EvaluatorID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Rating_RatedID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Rating_TripID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_RequestedCommunity_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Schedule_TripID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_Trip_DriverID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_TripPickupRequest_TripID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_TripPickupRequest_UserID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_User_Referred_By_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_UserConversation_UserID" ManuallyRouted="false" />
+        <AssociationConnector Association="AP_Raye7DbModel.FK_UserFavoritePlace_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

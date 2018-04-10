@@ -1,0 +1,135 @@
+﻿@model APRaye7.Models.ViewModels.DashBoardVMs.ReportVM
+@using APRaye7.App_GlobalResources
+<div class="row">
+    <div class="col-sm-4">
+        <div class="info-box bg-green">
+            <span class="info-box-icon"><i class="ion ion-ios-people-outline"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">@DashBoardV1.UsersTillToday</span>
+                <span class="info-box-number">@Model.TotalUsersTillToday</span>
+
+
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="info-box bg-light-blue">
+            <span class="info-box-icon"><i class="ion ion-android-car"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">@DashBoardV1.TotalPostedTrips</span>
+                <span class="info-box-number">@Model.totalPostedTrips</span>
+
+
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="info-box bg-red">
+            <span class="info-box-icon"><i class="ion ion-android-cancel"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">@DashBoardV1.TotalCancelledTrips</span>
+                <span class="info-box-number">@Model.NumberOfCancelledTrips</span>
+
+
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+    </div>
+</div>
+
+<div class="row-border">
+    <div class="col-md-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.TripsPerBuilding</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin" style="table-layout: fixed;">
+                        <thead>
+                            <tr>
+
+                                @foreach (var s in Model.TripsPerBuilding)
+                                {
+                                    <th width="250px">@s.BranchName</th>
+                                }
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                @foreach (var s in Model.TripsPerBuilding)
+                                {
+                                    <td width="250px">@s.Count</td>
+
+                                }
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>
+
+<div class="row-border">
+    <div class="col-md-12">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DashBoardV1.TopTenUsers</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin" style="table-layout: fixed;">
+                        <thead>
+                            <tr>
+
+                                @foreach (var s in Model.TopUsers)
+                                {
+                                    <th width="250px">@s.BranchName</th>
+                                }
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                @foreach (var s in Model.TopUsers)
+                                {
+                                    <td width="250px">@s.Count</td>
+
+                                }
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>

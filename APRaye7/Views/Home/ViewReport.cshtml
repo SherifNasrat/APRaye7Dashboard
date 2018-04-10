@@ -1,0 +1,48 @@
+﻿@model APRaye7.Models.ViewModels.DashBoardVMs.ReportVM
+@using APRaye7.App_GlobalResources
+@{
+    ViewBag.Title = DashBoardV1.ReportPageTitle;
+}
+@Scripts.Render("~/Scripts/Home/Report.js")
+<div class="row">
+    <div class="col-xs-2">
+
+        <div class="input-group" style="width:300px;">
+            <div class="input-group-addon" style="width:100px;">
+                <i class="fa fa-calendar"></i>
+                <label style="display:inline"><b>@DashBoardV1.StartDate</b></label>
+            </div>
+            @Html.Editor("fromPeriod", new { htmlAttributes = new { @class = "form-control", @id = "fromPeriod_picker", @type = "text" } })
+        </div>
+    </div>
+</div> <!-- From Period Drop Down-->
+<br />
+<div class="row">
+    <div class="col-xs-2">
+        <div class="input-group" style="width:300px;">
+            <div class="input-group-addon" style="width:104px;">
+                <i class="fa fa-calendar"></i>
+                <label style="display:inline"><b>@DashBoardV1.EndDate</b></label>
+            </div>
+            @Html.Editor("toPeriod", new { htmlAttributes = new { @class = "form-control", @id = "toPeriod_picker", @type = "text" } })
+        </div>
+    </div>
+</div> <!-- To Period Drop Down-->
+<br />
+<div class="row">
+    <div class="col-md-5">
+        <button type="button" class="btn btn-info btn-flat" id="RunDashBoard" style="width:300px">Go!</button>
+    </div>
+</div> <!-- Go button-->
+<br />
+<div id="dvReportResult">
+    @{Html.RenderPartial("ReportBody", Model);}
+</div>
+
+<script type="text/javascript">
+    $.ReportUrls = {};
+    $.ReportUrls.GenerateReport = '@Url.Action("ViewReportPartial", "Home")'
+   
+
+
+</script>

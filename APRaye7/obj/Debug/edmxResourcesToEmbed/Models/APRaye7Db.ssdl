@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AP_Raye7DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="activities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trackable_id" Type="int" />
+    <Property Name="trackable_type" Type="nvarchar(max)" />
+    <Property Name="unread" Type="bit" />
+    <Property Name="owner_id" Type="int" />
+    <Property Name="owner_type" Type="nvarchar(max)" />
+    <Property Name="key" Type="nvarchar(max)" />
+    <Property Name="parameters" Type="text" />
+    <Property Name="recipient_id" Type="int" />
+    <Property Name="recipient_type" Type="nvarchar(max)" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="branch">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="latitude" Type="float" Nullable="false" />
+    <Property Name="longitude" Type="float" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="address" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="chat_messages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sender_id" Type="int" />
+    <Property Name="content" Type="text" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="checkpoints">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trip_id" Type="int" />
+    <Property Name="place_id" Type="int" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="clusters">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="communities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="cluster_id" Type="int" />
+    <Property Name="place_id" Type="int" />
+    <Property Name="visible" Type="bit" />
+    <Property Name="category" Type="int" />
+    <Property Name="type" Type="int" />
+    <Property Name="verifier" Type="text" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="community_subscriptions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="community_id" Type="int" />
+    <Property Name="subscription_proof" Type="nvarchar(max)" />
+    <Property Name="type" Type="nvarchar(max)" />
+    <Property Name="approved" Type="bit" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="community_suggestions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="verifier" Type="nvarchar(max)" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="conversations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="credits">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="type" Type="nvarchar(max)" />
+    <Property Name="creditable_id" Type="int" />
+    <Property Name="creditable_type" Type="nvarchar(max)" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="delayed_jobs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="priority" Type="int" />
+    <Property Name="handler" Type="text" />
+    <Property Name="last_error" Type="text" />
+    <Property Name="run_at" Type="datetime" />
+    <Property Name="locked_at" Type="datetime" />
+    <Property Name="failed_at" Type="datetime" />
+    <Property Name="locked_by" Type="nvarchar(max)" />
+    <Property Name="queue" Type="nvarchar(max)" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="device">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="os" Type="nvarchar(max)" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="registration_id" Type="nvarchar(max)" />
+    <Property Name="os_version" Type="nvarchar(max)" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="feedbacks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="leavable_id" Type="int" />
+    <Property Name="leavable_type" Type="nvarchar(max)" />
+    <Property Name="comment" Type="text" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="messages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="conversation_id" Type="int" />
+    <Property Name="messagable_id" Type="int" />
+    <Property Name="messagable_type" Type="nvarchar(max)" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="payments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="points" Type="int" />
+    <Property Name="transaction_done" Type="bit" />
+    <Property Name="transaction_done_at" Type="datetime" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="pickups">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="departure_time_from" Type="datetime" />
+    <Property Name="departure_time_to" Type="datetime" />
+    <Property Name="source_id" Type="int" />
+    <Property Name="destination_id" Type="int" />
+    <Property Name="passenger_id" Type="int" />
+    <Property Name="deleted" Type="bit" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="places">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="longitude" Type="float" />
+    <Property Name="latitude" Type="float" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+    <Property Name="soft_deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="ratings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="evaluator_id" Type="int" />
+    <Property Name="rated_id" Type="int" />
+    <Property Name="trip_id" Type="int" />
+    <Property Name="stars" Type="int" />
+    <Property Name="comment" Type="text" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="requested_communities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="company_name" Type="nvarchar(max)" />
+    <Property Name="domain" Type="nvarchar(max)" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="schedules">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="repeatable_type" Type="nvarchar(max)" />
+    <Property Name="repeatable_id" Type="int" />
+    <Property Name="saturday" Type="bit" />
+    <Property Name="sunday" Type="bit" />
+    <Property Name="monday" Type="bit" />
+    <Property Name="tuesday" Type="bit" />
+    <Property Name="wednesday" Type="bit" />
+    <Property Name="thursday" Type="bit" />
+    <Property Name="friday" Type="bit" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="system_messages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="notifiable_type" Type="nvarchar(max)" />
+    <Property Name="notifiable_id" Type="int" />
+    <Property Name="type" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="trip_pickup_requests">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trip_id" Type="int" />
+    <Property Name="pickup_id" Type="int" />
+    <Property Name="sender_id" Type="int" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="trips">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="departure_time" Type="datetime" />
+    <Property Name="seats" Type="int" />
+    <Property Name="points" Type="int" />
+    <Property Name="source_id" Type="int" />
+    <Property Name="destination_id" Type="int" />
+    <Property Name="driver_id" Type="int" />
+    <Property Name="deleted" Type="bit" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+    <Property Name="soft_deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="user_conversations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="conversation_id" Type="int" />
+    <Property Name="unread" Type="int" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar(max)" />
+    <Property Name="last_name" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="encrypted_password" Type="nvarchar(max)" />
+    <Property Name="phone_number" Type="nvarchar(max)" />
+    <Property Name="gender" Type="int" />
+    <Property Name="birth_date" Type="date" />
+    <Property Name="have_car" Type="bit" />
+    <Property Name="smoking" Type="bit" />
+    <Property Name="same_gender" Type="bit" />
+    <Property Name="provider" Type="nvarchar(max)" />
+    <Property Name="uid" Type="nvarchar(max)" />
+    <Property Name="rating_counter" Type="int" />
+    <Property Name="rating" Type="float" />
+    <Property Name="business_purpose" Type="nvarchar(max)" />
+    <Property Name="referral_points" Type="int" />
+    <Property Name="referral_id" Type="nvarchar(max)" />
+    <Property Name="referred_by_id" Type="int" />
+    <Property Name="user_points" Type="int" />
+    <Property Name="driven_points" Type="int" />
+    <Property Name="ridden_points" Type="int" />
+    <Property Name="sms_count" Type="int" />
+    <Property Name="tokens" Type="nvarchar(max)" />
+    <Property Name="last_seen" Type="datetime" />
+    <Property Name="reset_password_token" Type="nvarchar(max)" />
+    <Property Name="reset_password_sent_at" Type="datetime" />
+    <Property Name="remember_created_at" Type="datetime" />
+    <Property Name="personal_image" Type="nvarchar(max)" />
+    <Property Name="sign_in_count" Type="int" />
+    <Property Name="current_sign_in_at" Type="datetime" />
+    <Property Name="last_sign_in_at" Type="datetime" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+    <Property Name="default_work_place_id" Type="int" />
+    <Property Name="soft_deleted" Type="bit" />
+    <Property Name="image_secure_token" Type="nvarchar(max)" />
+    <Property Name="time_zone" Type="nvarchar(max)" />
+    <Property Name="last_sign_in_ip" Type="nvarchar(max)" />
+    <Property Name="current_sign_in_ip" Type="nvarchar(max)" />
+  </EntityType>
+  <Function Name="CarbonSavings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDate" Type="date" Mode="In" />
+    <Parameter Name="endDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="CarbonSavingsNoDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DeletedPassengerTrips" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDate" Type="date" Mode="In" />
+    <Parameter Name="endDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="DeletedPassengerTripsNoDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DeletedTripsPerBranch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDate" Type="date" Mode="In" />
+    <Parameter Name="endDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="DeletedTripsPerBranchNoDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PassengerTripsPerBranch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDate" Type="date" Mode="In" />
+    <Parameter Name="endDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="PassengerTripsPerBranchNoDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TopTenBranches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDate" Type="date" Mode="In" />
+    <Parameter Name="endDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="TopTenBranchesNoDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TotalTripsPerBranch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDate" Type="date" Mode="In" />
+    <Parameter Name="endDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="TotalTripsPerBranchNoDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TripsPerBranch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDate" Type="date" Mode="In" />
+    <Parameter Name="endDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="TripsPerBranchNoDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UsersPerBranch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDate" Type="date" Mode="In" />
+    <Parameter Name="endDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="UsersPerBranchNoDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="AP_Raye7DbModelStoreContainer">
+    <EntitySet Name="activities" EntityType="Self.activities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="branch" EntityType="Self.branch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="chat_messages" EntityType="Self.chat_messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="checkpoints" EntityType="Self.checkpoints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="clusters" EntityType="Self.clusters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="communities" EntityType="Self.communities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="community_subscriptions" EntityType="Self.community_subscriptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="community_suggestions" EntityType="Self.community_suggestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="conversations" EntityType="Self.conversations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="credits" EntityType="Self.credits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="delayed_jobs" EntityType="Self.delayed_jobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="device" EntityType="Self.device" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="feedbacks" EntityType="Self.feedbacks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="messages" EntityType="Self.messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="payments" EntityType="Self.payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pickups" EntityType="Self.pickups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="places" EntityType="Self.places" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ratings" EntityType="Self.ratings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="requested_communities" EntityType="Self.requested_communities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="schedules" EntityType="Self.schedules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="system_messages" EntityType="Self.system_messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trip_pickup_requests" EntityType="Self.trip_pickup_requests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trips" EntityType="Self.trips" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_conversations" EntityType="Self.user_conversations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

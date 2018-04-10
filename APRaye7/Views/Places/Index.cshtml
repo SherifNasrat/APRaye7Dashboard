@@ -1,0 +1,82 @@
+﻿
+@using APRaye7.App_GlobalResources
+@using APRaye7.Shared
+@{
+    ViewBag.Title = Places_resource.PageTitle;
+}
+@Styles.Render("~/AdminLTE/plugins/datatables/css/styles")
+@Scripts.Render("~/AdminLTE/plugins/datatables/js/scriptjavascript")
+<style>
+
+    .buttons-csv
+    {
+    background: #337ab7 !important;
+
+    }
+    .buttons-excel 
+    {
+        background:green !important;
+    }
+    .buttons-pdf
+    {
+        background:red !important;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-push-12">
+        <div class="box" style="width:100%;">
+            @*<div class="box-header">
+
+                    <h3 class="box-title">@Resources.Trips_resource.PageTitle</h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="box-body">
+                <table id="BranchesTable" class="table table-bordered table-hover">
+                    <thead>
+
+                        <tr>
+                            <th>@Places_resource.BranchID</th>
+                            <th>@Places_resource.BranchName</th>
+                            <th>@Places_resource.Longitude</th>
+                            <th>@Places_resource.Latitude</th>
+                            <th>@Places_resource.Description</th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $.BranchUrls = {};
+    $.BranchUrls.getData = '@Url.Action("getPlaces", "Places")'
+    $.BranchUrls.getSessionControllerData = '@Url.Action("getSessionControllerUser", "Account")'
+    $.BranchUrls.Details = '@Url.Action("Details", "Places")'
+    $.BranchUrls.Create = '@Url.Action("Create", "Places")'
+</script>
+@Scripts.Render("~/Scripts/Places/Places.js")
+<script type="text/javascript">
+    if("@SessionController.User.IsAdmin" != null || "@SessionController.User.IsSuperAdmin" != null)
+    {
+        $("#AddButton").hide();
+    }
+</script>
+@section Scripts {
+
+
+
+}
+
+
+

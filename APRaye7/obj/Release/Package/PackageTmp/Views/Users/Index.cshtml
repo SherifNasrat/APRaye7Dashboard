@@ -1,0 +1,95 @@
+﻿@model IEnumerable<APRaye7.Models.ViewModels.UserVM>
+@using APRaye7.Shared
+@using APRaye7.App_GlobalResources
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Users_resource.PageTitle;
+}
+@Styles.Render("~/AdminLTE/plugins/datatables/css/styles")
+
+
+<style>
+
+
+    .buttons-csv {
+        background: #337ab7 !important;
+    }
+
+    .buttons-excel {
+        background: green !important;
+    }
+
+    .buttons-pdf {
+        background: red !important;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-push-12">
+        <div class="box" style="width:100%;">
+            @*<div class="box-header">
+
+                    <h3 class="box-title">@Users_resource.PageTitle</h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="box-body">
+                <table id="UsersTable" class="table table-bordered table-hover">
+                    <thead>
+
+                        <tr>
+                            <th>@Users_resource.UserID</th>
+                            <th>@Users_resource.Email</th>
+                            <th>@Users_resource.First_Name</th>
+                            <th>@Users_resource.Last_Name</th>
+                            <th>@Users_resource.User_Points</th>
+                            <th>@Users_resource.Gender</th>
+                            <th>@Users_resource.Branch</th>
+                            <th>@Users_resource.Phone_Number</th>
+                            @*Should add the Home,Companies fields*@
+                            <th>@Users_resource.Have_Car</th>
+                            <th>@Users_resource.Same_Gender</th>
+                            <th>@Users_resource.Smoking</th>
+
+                            @*Add Referral something*@
+                            <th>@Users_resource.Driven_Points</th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $.UserUrls = {};
+    $.UserUrls.getData = '@Url.Action("getUsers", "Users")'
+    $.UserUrls.getSessionControllerData = '@Url.Action("getSessionControllerUser", "Account")'
+    $.UserUrls.Details = '@Url.Action("Details", "Users")'
+    $.UserUrls.Create = '@Url.Action("Create","Users")'
+</script>
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js/scriptjavascript")
+    @Scripts.Render("~/Scripts/Users/Users.js")
+
+    @{
+        if (SessionController.User.IsAdmin != null || SessionController.User.IsSuperAdmin != null)
+        {
+            @:
+            <script type="text/javascript">$("#toolbar").html('<a href="Users/Create" class="btn btn-block btn-success" style="display:inline"><i class="fa fa-plus"></i> <b>Add User</b></a>');</script>
+
+
+        }
+    }
+
+
+   
+}

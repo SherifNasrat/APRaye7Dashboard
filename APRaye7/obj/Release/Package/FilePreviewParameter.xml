@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="APTest/AdminPanelRaye7" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\TFS\ Workspace\\APRaye7\\APRaye7\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\TFS\ Workspace\\APRaye7\\APRaye7\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="CIBAdminsEntities-Web.config Connection String" description="CIBAdminsEntities Connection String used in web.config by the application to access the database." value="metadata=res://*/AdminsDB.csdl|res://*/AdminsDB.ssdl|res://*/AdminsDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SiGMA-PC\WorkDB;initial catalog=CIBAdmins;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\TFS\ Workspace\\APRaye7\\APRaye7\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CIBAdminsEntities']/@connectionString" />
+  </parameter>
+  <parameter name="AP_Raye7DbEntities-Web.config Connection String" description="AP_Raye7DbEntities Connection String used in web.config by the application to access the database." value="metadata=res://*/Models.APRaye7Db.csdl|res://*/Models.APRaye7Db.ssdl|res://*/Models.APRaye7Db.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SIGMA-PC\WORKDB;initial catalog=AP_Raye7Db;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\TFS\ Workspace\\APRaye7\\APRaye7\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AP_Raye7DbEntities']/@connectionString" />
+  </parameter>
+</parameters>

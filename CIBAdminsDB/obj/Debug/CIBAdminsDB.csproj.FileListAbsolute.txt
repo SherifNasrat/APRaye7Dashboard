@@ -1,0 +1,19 @@
+D:\Workspace\APRaye7\CIBAdminsDB\bin\Debug\CIBAdminsDB.dll.config
+D:\Workspace\APRaye7\CIBAdminsDB\bin\Debug\CIBAdminsDB.dll
+D:\Workspace\APRaye7\CIBAdminsDB\bin\Debug\CIBAdminsDB.pdb
+D:\Workspace\APRaye7\CIBAdminsDB\bin\Debug\EntityFramework.dll
+D:\Workspace\APRaye7\CIBAdminsDB\bin\Debug\EntityFramework.SqlServer.dll
+D:\Workspace\APRaye7\CIBAdminsDB\bin\Debug\EntityFramework.xml
+D:\Workspace\APRaye7\CIBAdminsDB\bin\Debug\EntityFramework.SqlServer.xml
+D:\Workspace\APRaye7\CIBAdminsDB\obj\Debug\CIBAdminsDB.csprojResolveAssemblyReference.cache
+D:\Workspace\APRaye7\CIBAdminsDB\obj\Debug\CIBAdminsDB.dll
+D:\Workspace\APRaye7\CIBAdminsDB\obj\Debug\CIBAdminsDB.pdb
+D:\TFS Workspace\APRaye7\CIBAdminsDB\bin\Debug\CIBAdminsDB.dll.config
+D:\TFS Workspace\APRaye7\CIBAdminsDB\bin\Debug\CIBAdminsDB.dll
+D:\TFS Workspace\APRaye7\CIBAdminsDB\bin\Debug\CIBAdminsDB.pdb
+D:\TFS Workspace\APRaye7\CIBAdminsDB\bin\Debug\EntityFramework.dll
+D:\TFS Workspace\APRaye7\CIBAdminsDB\bin\Debug\EntityFramework.SqlServer.dll
+D:\TFS Workspace\APRaye7\CIBAdminsDB\bin\Debug\EntityFramework.xml
+D:\TFS Workspace\APRaye7\CIBAdminsDB\bin\Debug\EntityFramework.SqlServer.xml
+D:\TFS Workspace\APRaye7\CIBAdminsDB\obj\Debug\CIBAdminsDB.dll
+D:\TFS Workspace\APRaye7\CIBAdminsDB\obj\Debug\CIBAdminsDB.pdb

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="APTest/AdminPanelRaye7" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\TFS\ Workspace\\APRaye7\\APRaye7\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\TFS\ Workspace\\APRaye7\\APRaye7\\obj\\Debug\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="AP_Raye7DbEntities-Web.config Connection String" description="" value="metadata=res://*/Models.APRaye7Db.csdl|res://*/Models.APRaye7Db.ssdl|res://*/Models.APRaye7Db.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=SIGMA-PC\WORKDB;Initial Catalog=AP_Raye7Db;Integrated Security=True&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\TFS\ Workspace\\APRaye7\\APRaye7\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AP_Raye7DbEntities']/@connectionString" />
+  </parameter>
+  <parameter name="CIBAdminsEntities-Web.config Connection String" description="" value="metadata=res://*/AdminsDB.csdl|res://*/AdminsDB.ssdl|res://*/AdminsDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=SIGMA-PC\WORKDB;Initial Catalog=CIBAdmins;Integrated Security=True&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\TFS\ Workspace\\APRaye7\\APRaye7\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CIBAdminsEntities']/@connectionString" />
+  </parameter>
+</parameters>

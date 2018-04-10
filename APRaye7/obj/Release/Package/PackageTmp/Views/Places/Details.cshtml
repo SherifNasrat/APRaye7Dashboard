@@ -1,0 +1,67 @@
+﻿@model APRaye7.Models.ViewModels.PlaceVM
+@using APRaye7.App_GlobalResources
+@using APRaye7.Shared
+@{
+    ViewBag.Title = Places_resource.PageTitle;
+    ViewBag.SubTitle = Places_resource.Details;
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/Examples/ProfileEx/menu/scriptjavascript")
+}
+
+<div class="row">
+    <div class="col-xs-3">
+             <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">@Places_resource.Details</h3>
+            </div>
+            <div class="box-body">
+                <strong> @Places_resource.BranchName</strong>
+                <p class="text-muted">
+                    @Model.name
+                </p>
+                <hr>
+                <strong>@Places_resource.Longitude</strong>
+                <p class="text-muted">@Model.longitude</p>
+                <hr>
+                <strong>@Places_resource.Latitude</strong>
+                <p>
+                    @Model.latitude
+                </p>
+                <hr>
+                <strong>@Places_resource.Description</strong>
+                <p>@Model.description</p>
+            </div>
+        </div>
+   
+
+    </div>
+
+</div>
+<div class="pull-left">
+    @{
+        if (SessionController.User.IsAdmin != null || SessionController.User.IsSuperAdmin != null)
+        {
+            @:<a href="@Url.Action("Edit","Places",new { id = Model.id })" class="btn btn-block btn-success" style="display:inline"><b>@Places_resource.Edit</b></a>
+                            @:<a href="@Url.Action("Delete","Places",new { id = Model.id })" class="btn btn-block btn-danger" style="display:inline;"><b>@Places_resource.Delete</b></a>
+                        }
+    }
+
+
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            var menuItem = $('#left-sidebar-menu-examples');
+            menuItem.addClass('active');
+            var subMenuItem = menuItem.find('#left-sidebar-menu-examples-profileex');
+            subMenuItem.addClass('active');
+        });
+    </script>
+
+}
+
+

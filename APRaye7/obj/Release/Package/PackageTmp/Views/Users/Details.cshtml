@@ -1,0 +1,144 @@
+﻿@model APRaye7.Models.ViewModels.UserVM
+    @using APRaye7.App_GlobalResources
+@using APRaye7.Shared
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Users_resource.PageTitle;
+    ViewBag.SubTitle = Users_resource.Details;
+}
+
+@section Menu {
+    @Scripts.Render("~/Scripts/Examples/ProfileEx/menu/scriptjavascript")
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="box box-primary">
+            <div class="box-body box-profile">
+                
+                @if (Model.Personal_Image == null || Model.Personal_Image == "")
+                {
+                @:<img class="profile-user-img img-responsive img-circle" src="@Url.Action("noUserProfilePicture","Users")">
+
+                }
+                else
+                {
+                @:<img class="profile-user-img img-responsive img-circle" src="@Url.Action("loadUserPicture","Users",new { Personal_Image = Model.Personal_Image })">
+                }
+
+                <h3 class="profile-username text-center">@Model.First_Name @Model.Last_Name</h3>
+                <p class="text-muted text-center">@Model.Email</p>
+                <ul class="list-group list-group-unbordered">
+                    <li class="list-group-item">
+                        <b>@Users_resource.Phone_Number</b> <a class="pull-right">@Model.Phone_Number</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Users_resource.Gender</b> <a class="pull-right">@Model.Gender</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Users_resource.Last_Seen</b> <a class="pull-right">@Model.Last_Seen</a>
+                    </li>
+                </ul>
+                @*<a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>*@
+            </div>
+        </div>
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">@Users_resource.UserDetails</h3>
+            </div>
+            <div class="box-body">
+                <strong> @Users_resource.Branch</strong>
+                <p class="text-muted">
+                    @Model.Branch
+                </p>
+                <hr>
+                <strong>@Users_resource.Have_Car</strong>
+                <p class="text-muted">@Model.Have_Car</p>
+                <hr>
+                <strong>@Users_resource.Same_Gender</strong>
+                <p>
+                    @Model.Same_Gender
+                </p>
+                <hr>
+                <strong>@Users_resource.Smoking</strong>
+                <p>@Model.Smoking</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">@Users_resource.UserPointsDetailed</h3>
+            </div>
+            <div class="box-body">
+                <strong> @Users_resource.User_Points</strong>
+                <p class="text-muted">
+                    @Model.User_Points
+                </p>
+                <hr>
+                <strong>@Users_resource.Driven_Points</strong>
+                <p class="text-muted">@Model.Driven_Points</p>
+                <hr>
+                <strong>@Users_resource.Ridden_Points</strong>
+                <p class="text-muted">@Model.Ridden_Points</p>
+                <hr>
+                <strong>@Users_resource.Rating</strong>
+                <p>
+                    @Model.Rating
+                </p>
+                <hr>
+                <strong>@Users_resource.Current_Sign_In_At</strong>
+                <p>@Model.Current_Sign_In_At</p>
+                <hr>
+                <strong>@Users_resource.Created_At</strong>
+                <p>@Model.Created_At</p>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="info-box" style="width:320px;">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-car"></i></span>
+                <div class="info-box-content" style="text-wrap:normal">
+                    <span class="info-box-text" style="white-space:nowrap">@Users_resource.DriverTrips</span>
+                    <span class="info-box-number">@Model.NumerOfDriverTrips</span>
+                </div>
+            </div>
+            <div class="info-box" style="width:320px;">
+                <span class="info-box-icon bg-red"><i class="fa fa-remove"></i></span>
+                <div class="info-box-content" style="text-wrap:normal">
+                    <span class="info-box-text" style="white-space:nowrap">@Users_resource.CancelledDriverTrips</span>
+                    <span class="info-box-number">@Model.NumberOfCancelledDriverTrips</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box" style="width:320px;">
+                    <span class="info-box-icon bg-fuchsia-active"><i class="fa fa-male"></i></span>
+                    <div class="info-box-content" style="text-wrap:normal">
+                        <span class="info-box-text" style="white-space:nowrap">@Users_resource.PassengerTrips</span>
+                    <span class="info-box-number">@Model.NumberOfPassengerTrips</span>
+                </div>
+            </div>
+                <div class="info-box" style="width:320px;">
+                    <span class="info-box-icon bg-red"><i class="fa fa-remove"></i></span>
+                    <div class="info-box-content" style="text-wrap:normal">
+                        <span class="info-box-text" style="white-space:nowrap">@Users_resource.PassengerTrips</span>
+                        <span class="info-box-number">@Model.NumberOfCancelledPassengerTrips</span>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+</div>
+@{
+    if (SessionController.User.IsAdmin != null || SessionController.User.IsSuperAdmin != null)
+    {
+        @:<a href="@Url.Action("Edit","Users",new { id = Model.UserID })" class="btn btn-block btn-success" style="display:inline"><b>@Users_resource.Edit</b></a>
+        @:<a href="@Url.Action("Delete","Users",new { id = Model.UserID })" class="btn btn-block btn-danger" style="display:inline;"><b>@Users_resource.Delete</b></a>
+    }
+}
+
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/icheck/js/scriptjavascript")
+}

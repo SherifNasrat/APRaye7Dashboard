@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AllUsers" xml:space="preserve">
+    <value>All Users</value>
+  </data>
+  <data name="HaveCarPercentage" xml:space="preserve">
+    <value>Users Who Have a Car</value>
+  </data>
+  <data name="HaveCarPieChart" xml:space="preserve">
+    <value>Users With/Without Cars</value>
+  </data>
+  <data name="HaveCarUsers" xml:space="preserve">
+    <value>Users With Car</value>
+  </data>
+  <data name="MaleVsFemalePieChart" xml:space="preserve">
+    <value>Male vs. Female</value>
+  </data>
+  <data name="MostVisitedDestination" xml:space="preserve">
+    <value>Most Visited Destination</value>
+  </data>
+  <data name="MostVisitedSource" xml:space="preserve">
+    <value>Most Common Source</value>
+  </data>
+  <data name="NumOfFemales" xml:space="preserve">
+    <value>Female Users</value>
+  </data>
+  <data name="NumOfMales" xml:space="preserve">
+    <value>Male Users</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>DashBoard V1</value>
+  </data>
+  <data name="SameGenderUsers" xml:space="preserve">
+    <value>Users With Same Gender</value>
+  </data>
+  <data name="SmokersPercentage" xml:space="preserve">
+    <value>Smokers Percentage</value>
+  </data>
+  <data name="SmokeUsers" xml:space="preserve">
+    <value>Users Who Smoke</value>
+  </data>
+  <data name="TodayTrips" xml:space="preserve">
+    <value>Number of Trips Today</value>
+  </data>
+  <data name="UsersCount" xml:space="preserve">
+    <value>Total Number of Users</value>
+  </data>
+  <data name="UserStatisticsBarChart" xml:space="preserve">
+    <value>User Statistics</value>
+  </data>
+  <data name="UsersWithoutCars" xml:space="preserve">
+    <value>Users Without Car</value>
+  </data>
+  <data name="UserWithCars" xml:space="preserve">
+    <value>Users With Car</value>
+  </data>
+  <data name="UserWithMostTrips" xml:space="preserve">
+    <value>User With Most Trips</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="TripsPerBranchChart" xml:space="preserve">
+    <value>Driver Trips Made and Destroyed</value>
+  </data>
+  <data name="TripsPerBranch" xml:space="preserve">
+    <value>Driver Trips Made and Destroyed</value>
+  </data>
+  <data name="ActiveUsers" xml:space="preserve">
+    <value>Active Users</value>
+  </data>
+  <data name="ActivevsInActivePieChart" xml:space="preserve">
+    <value>Active vs. In-Active Users</value>
+  </data>
+  <data name="InActiveUsers" xml:space="preserve">
+    <value>In-Active Users</value>
+  </data>
+  <data name="RecurrentTrips" xml:space="preserve">
+    <value>Recurrent Trips</value>
+  </data>
+  <data name="TotalTrips" xml:space="preserve">
+    <value>Total Trips</value>
+  </data>
+  <data name="TripsvsRecurrentTripsPieChart" xml:space="preserve">
+    <value>Trips vs. Recurrent Trips</value>
+  </data>
+  <data name="UsersPerBranchChart" xml:space="preserve">
+    <value>Users Per Branch</value>
+  </data>
+  <data name="AcceptedTrips" xml:space="preserve">
+    <value>Accepted Trips</value>
+  </data>
+  <data name="InvitedTrips" xml:space="preserve">
+    <value>Invited Trips</value>
+  </data>
+  <data name="RequestedTrips" xml:space="preserve">
+    <value>Requested Trips</value>
+  </data>
+  <data name="TopTenChart" xml:space="preserve">
+    <value>Top Ten Visited Branches</value>
+  </data>
+  <data name="TotalTripsPerBranchChart" xml:space="preserve">
+    <value>Total Trips Per Branch</value>
+  </data>
+  <data name="DrivenPoints" xml:space="preserve">
+    <value>Driven Points</value>
+  </data>
+  <data name="PassengerTripsPerBranchChart" xml:space="preserve">
+    <value>Passenger Trips Made and Destroyed</value>
+  </data>
+  <data name="PointsSystem" xml:space="preserve">
+    <value>Pointing System Score</value>
+  </data>
+  <data name="RiddenPoints" xml:space="preserve">
+    <value>Ridden Points</value>
+  </data>
+  <data name="UserPoints" xml:space="preserve">
+    <value>User Points</value>
+  </data>
+  <data name="ReportPageTitle" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="TopTenUsers" xml:space="preserve">
+    <value>Top Ten Users</value>
+  </data>
+  <data name="TotalCancelledTrips" xml:space="preserve">
+    <value>Total Number of Cancelled Trips</value>
+  </data>
+  <data name="TotalPostedTrips" xml:space="preserve">
+    <value>Total Posted Trips</value>
+  </data>
+  <data name="TripsPerBuilding" xml:space="preserve">
+    <value>Trips Per Building</value>
+  </data>
+  <data name="UsersTillToday" xml:space="preserve">
+    <value>Total number of users till today</value>
+  </data>
+</root>

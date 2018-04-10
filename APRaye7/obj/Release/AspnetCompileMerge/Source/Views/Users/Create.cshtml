@@ -1,0 +1,98 @@
+﻿@model APRaye7.Models.ViewModels.UserVM
+    @using APRaye7.App_GlobalResources
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Users_resource.PageTitle;
+    ViewBag.SubTitle = Users_resource.Create;
+}
+@*@Styles.Render("~/AdminLTE/plugins/daterangepicker/css")*@
+@Styles.Render("~/AdminLTE/plugins/datepicker/js/scriptjavascript")
+@Styles.Render("~/AdminLTE/plugins/icheck/css/styles")
+@Styles.Render("~/AdminLTE/plugins/colorpicker/css/styles")
+@Styles.Render("~/AdminLTE/plugins/timepicker/css/styles")
+@Styles.Render("~/AdminLTE/plugins/select2/css/styles")
+@Styles.Render("~/AdminLTE/dist/css/styles")
+@Styles.Render("~/AdminLTE/dist/css/skins/styles")
+@Scripts.Render("~/Scripts/Users/Create.js/scriptjavascript")
+<div class="row">
+    <div class="col-md-12">
+        <div class="box box-primary">
+            <div class="box-header">
+            </div>
+            @using (Html.BeginForm("Create","Users",FormMethod.Post,new { enctype = "multipart/form-data" }))
+            {
+                <div class="box-body">
+                    <div class="form-group">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(m => m.UserID)
+
+
+                        <div class="input-group" style="width:300px;">
+                            <label><b>@Users_resource.Email</b></label>
+                            @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control input-sm", @type = "email", @palceholder = "Enter Email" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="input-group" style="width:300px;">
+                            <label><b>@Users_resource.First_Name</b></label>
+                            @Html.EditorFor(m => m.First_Name, new { htmlAttributes = new { @class = "form-control input-sm", @type = "text", @palceholder = "Enter First Name" } })
+                            @Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group" style="width:300px;">
+                            <label><b>@Users_resource.Last_Name</b></label>
+                            @Html.EditorFor(m => m.Last_Name, new { htmlAttributes = new { @class = "form-control input-sm", @type = "text", @palceholder = "Enter Last Name" } })
+                            @Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group" style="width:300px;">
+                            <label><b>@Users_resource.Gender</b></label>
+                            @Html.DropDownListFor(m => m.Gender, ViewBag.GenderOptions as IEnumerable<SelectListItem>, new { @class = "form-control input-sm" })
+                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group" style="width:300px;">
+                            <label><b>@Users_resource.Phone_Number</b></label>
+                            @Html.EditorFor(m => m.Phone_Number, new { htmlAttributes = new { @class = "form-control input-sm", @type = "text", @palceholder = "Enter Phone Number" } })
+                            @Html.ValidationMessageFor(model => model.Phone_Number, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group" style="width:300px;">
+                            <label><b>@Users_resource.Business_Purpose</b></label>
+                            @Html.EditorFor(m => m.Business_Purpose, new { htmlAttributes = new { @class = "form-control input-sm", @type = "text", @palceholder = "Enter Business Purpose" } })
+                            @Html.ValidationMessageFor(model => model.Business_Purpose, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group" style="width:300px;">
+                            <label style="margin-right:10px"><b>@Users_resource.Have_Car</b></label>
+                            @Html.CheckBoxFor(m => m.Have_A_Car, new { @id = "HaveCarCheckBox" })
+                        </div>
+                        <div class="input-group" style="width:300px;">
+                            <label style="margin-right:10px"><b>@Users_resource.Same_Gender</b></label>
+                            @Html.CheckBoxFor(m => m.Same_Gender_bool, new { @id = "SameGenderCheckBox" })
+                        </div>
+                        <div class="input-group" style="width:300px;">
+                            <label style="margin-right:10px"><b>@Users_resource.Smoking</b></label>
+                            @Html.CheckBoxFor(m => m.Smoking_bool, new { @id = "SmokingCheckBox" })
+                        </div>
+                        <div class="input-group" style="width:300px;">
+                            <label style="margin-right:10px"><b>@Users_resource.Personal_Image</b></label>
+                            @Html.TextBoxFor(model => model.Personal_Image_File, new { type = "file" })
+                        </div>
+                        <button type="submit" value="Save" class="btn btn-primary">Submit</button>
+                    </div>
+
+
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/icheck/js/scriptjavascript")
+    @Scripts.Render("~/AdminLTE/plugins/select2/js/scriptjavascript")
+    @Scripts.Render("~/AdminLTE/plugins/input-mask/js/scriptjavascript")
+    @Scripts.Render("~/AdminLTE/plugins/momentjs/js/scriptjavascript")
+    @Scripts.Render("~/AdminLTE/plugins/daterangepicker/js/scriptjavascript")
+    @Scripts.Render("~/AdminLTE/plugins/colorpicker/js/scriptjavascript")
+    @Scripts.Render("~/AdminLTE/plugins/timepicker/js/scriptjavascript")
+    @Scripts.Render("~/AdminLTE/plugins/icheck/js/scriptjavascript")
+
+}

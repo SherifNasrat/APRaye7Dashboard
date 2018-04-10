@@ -1,0 +1,77 @@
+﻿@using APRaye7.App_GlobalResources
+@{
+    ViewBag.Title = SystemUser_resource.PageTitle;
+}
+@Styles.Render("~/AdminLTE/plugins/datatables/css/styles")
+@Scripts.Render("~/AdminLTE/plugins/datatables/js/scriptjavascript")
+@Scripts.Render("~/Scripts/SystemUsers/SystemUsers.js")
+<style>
+    .table {
+        width: 100% !important;
+    }
+
+    .dataTables_scrollHeadInner {
+        width: 100% !important;
+    }
+
+    .dataTables_scrollFootInner {
+        width: 100% !important;
+    }
+    .buttons-csv
+    {
+    background: #337ab7 !important;
+
+    }
+    .buttons-excel 
+    {
+        background:green !important;
+    }
+    .buttons-pdf
+    {
+        background:red !important;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-push-12">
+        <div class="box" style="width:100%;">
+            @*<div class="box-header">
+
+                    <h3 class="box-title">@Resources.Users_resource.PageTitle</h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="box-body">
+                <table id="SystemUsersTable" class="table table-striped table-hover" style="width:100% !important">
+                    <thead>
+
+                        <tr>
+                            <th>@SystemUser_resource.SystemUserID</th>
+                            <th>@SystemUser_resource.UserName</th>
+                            <th>@SystemUser_resource.FullName</th>
+                            <th>@SystemUser_resource.Email</th>
+                            <th>@SystemUser_resource.Role</th>
+                            <th>@SystemUser_resource.CreationDate</th>
+                        </tr>
+
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $.SystemUserssUrls = {};
+        $.SystemUserssUrls.getData = '@Url.Action("getSystemUsers", "Account")'
+        $.SystemUserssUrls.Details = '@Url.Action("SystemUserProfile", "Account")'
+    </script>
+    
+}

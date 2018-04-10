@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CIBAdminsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ChangeLog">
+          <Key>
+            <PropertyRef Name="ChangeLogId" />
+          </Key>
+          <Property Name="ChangeLogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_SystemUserID" Type="int" Nullable="false" />
+          <Property Name="Action" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Entity" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FK_RecordID" Type="int" Nullable="false" />
+          <Property Name="LogDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChangeLogDetails">
+          <Key>
+            <PropertyRef Name="ChangeLogDetailsId" />
+          </Key>
+          <Property Name="ChangeLogDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_ChangeLogID" Type="int" Nullable="false" />
+          <Property Name="Field" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PreviousValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NewValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DetailDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="SystemUserID" />
+          </Key>
+          <Property Name="SystemUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsUser" Type="bit" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="IsSuperAdmin" Type="bit" />
+          <Property Name="PersonalImage" Type="nvarchar(max)" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="FK_Addedby" Type="int" />
+          <Property Name="LastModifiedDate" Type="datetime" />
+          <Property Name="FK_LastModifiedBy" Type="int" />
+          <Property Name="SecureToken" Type="nvarchar(max)" />
+          <Property Name="SecureTokenExpiryTime" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_ChangeLog_SystemUser">
+          <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="1" />
+          <End Role="ChangeLog" Type="Self.ChangeLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUser">
+              <PropertyRef Name="SystemUserID" />
+            </Principal>
+            <Dependent Role="ChangeLog">
+              <PropertyRef Name="FK_SystemUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChangeLogDetails_ChangeLog">
+          <End Role="ChangeLog" Type="Self.ChangeLog" Multiplicity="1" />
+          <End Role="ChangeLogDetails" Type="Self.ChangeLogDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChangeLog">
+              <PropertyRef Name="ChangeLogId" />
+            </Principal>
+            <Dependent Role="ChangeLogDetails">
+              <PropertyRef Name="FK_ChangeLogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CIBAdminsModelStoreContainer">
+          <EntitySet Name="ChangeLog" EntityType="Self.ChangeLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChangeLogDetails" EntityType="Self.ChangeLogDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemUser" EntityType="Self.SystemUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ChangeLog_SystemUser" Association="Self.FK_ChangeLog_SystemUser">
+            <End Role="SystemUser" EntitySet="SystemUser" />
+            <End Role="ChangeLog" EntitySet="ChangeLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChangeLogDetails_ChangeLog" Association="Self.FK_ChangeLogDetails_ChangeLog">
+            <End Role="ChangeLog" EntitySet="ChangeLog" />
+            <End Role="ChangeLogDetails" EntitySet="ChangeLogDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CIBAdminsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="SystemUserID" />
+          </Key>
+          <Property Name="SystemUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsUser" Type="Boolean" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="IsSuperAdmin" Type="Boolean" />
+          <Property Name="PersonalImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="FK_Addedby" Type="Int32" />
+          <Property Name="LastModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="FK_LastModifiedBy" Type="Int32" />
+          <Property Name="SecureToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecureTokenExpiryTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ChangeLogs" Relationship="CIBAdminsModel.FK_ChangeLog_SystemUser" FromRole="SystemUser" ToRole="ChangeLog" />
+        </EntityType>
+        <EntityContainer Name="CIBAdminsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SystemUsers" EntityType="Self.SystemUser" />
+          <EntitySet Name="ChangeLogs" EntityType="CIBAdminsModel.ChangeLog" />
+          <AssociationSet Name="FK_ChangeLog_SystemUser" Association="CIBAdminsModel.FK_ChangeLog_SystemUser">
+            <End Role="SystemUser" EntitySet="SystemUsers" />
+            <End Role="ChangeLog" EntitySet="ChangeLogs" />
+          </AssociationSet>
+          <EntitySet Name="ChangeLogDetails" EntityType="CIBAdminsModel.ChangeLogDetail" />
+          <AssociationSet Name="FK_ChangeLogDetails_ChangeLog" Association="CIBAdminsModel.FK_ChangeLogDetails_ChangeLog">
+            <End Role="ChangeLog" EntitySet="ChangeLogs" />
+            <End Role="ChangeLogDetail" EntitySet="ChangeLogDetails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ChangeLog">
+          <Key>
+            <PropertyRef Name="ChangeLogId" />
+          </Key>
+          <Property Name="ChangeLogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_SystemUserID" Type="Int32" Nullable="false" />
+          <Property Name="Action" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Entity" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FK_RecordID" Type="Int32" Nullable="false" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="SystemUser" Relationship="CIBAdminsModel.FK_ChangeLog_SystemUser" FromRole="ChangeLog" ToRole="SystemUser" />
+          <NavigationProperty Name="ChangeLogDetails" Relationship="CIBAdminsModel.FK_ChangeLogDetails_ChangeLog" FromRole="ChangeLog" ToRole="ChangeLogDetail" />
+        </EntityType>
+        <Association Name="FK_ChangeLog_SystemUser">
+          <End Type="CIBAdminsModel.SystemUser" Role="SystemUser" Multiplicity="1" />
+          <End Type="CIBAdminsModel.ChangeLog" Role="ChangeLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUser">
+              <PropertyRef Name="SystemUserID" />
+            </Principal>
+            <Dependent Role="ChangeLog">
+              <PropertyRef Name="FK_SystemUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ChangeLogDetail">
+          <Key>
+            <PropertyRef Name="ChangeLogDetailsId" />
+          </Key>
+          <Property Name="ChangeLogDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_ChangeLogID" Type="Int32" Nullable="false" />
+          <Property Name="Field" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PreviousValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DetailDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ChangeLog" Relationship="CIBAdminsModel.FK_ChangeLogDetails_ChangeLog" FromRole="ChangeLogDetail" ToRole="ChangeLog" />
+        </EntityType>
+        <Association Name="FK_ChangeLogDetails_ChangeLog">
+          <End Type="CIBAdminsModel.ChangeLog" Role="ChangeLog" Multiplicity="1" />
+          <End Type="CIBAdminsModel.ChangeLogDetail" Role="ChangeLogDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChangeLog">
+              <PropertyRef Name="ChangeLogId" />
+            </Principal>
+            <Dependent Role="ChangeLogDetail">
+              <PropertyRef Name="FK_ChangeLogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CIBAdminsModelStoreContainer" CdmEntityContainer="CIBAdminsEntities">
+          <EntitySetMapping Name="SystemUsers">
+            <EntityTypeMapping TypeName="CIBAdminsModel.SystemUser">
+              <MappingFragment StoreEntitySet="SystemUser">
+                <ScalarProperty Name="SecureTokenExpiryTime" ColumnName="SecureTokenExpiryTime" />
+                <ScalarProperty Name="SecureToken" ColumnName="SecureToken" />
+                <ScalarProperty Name="SystemUserID" ColumnName="SystemUserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+                <ScalarProperty Name="PersonalImage" ColumnName="PersonalImage" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="FK_Addedby" ColumnName="FK_Addedby" />
+                <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+                <ScalarProperty Name="FK_LastModifiedBy" ColumnName="FK_LastModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChangeLogs">
+            <EntityTypeMapping TypeName="CIBAdminsModel.ChangeLog">
+              <MappingFragment StoreEntitySet="ChangeLog">
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="FK_RecordID" ColumnName="FK_RecordID" />
+                <ScalarProperty Name="Entity" ColumnName="Entity" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="FK_SystemUserID" ColumnName="FK_SystemUserID" />
+                <ScalarProperty Name="ChangeLogId" ColumnName="ChangeLogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChangeLogDetails">
+            <EntityTypeMapping TypeName="CIBAdminsModel.ChangeLogDetail">
+              <MappingFragment StoreEntitySet="ChangeLogDetails">
+                <ScalarProperty Name="DetailDate" ColumnName="DetailDate" />
+                <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+                <ScalarProperty Name="PreviousValue" ColumnName="PreviousValue" />
+                <ScalarProperty Name="Field" ColumnName="Field" />
+                <ScalarProperty Name="FK_ChangeLogID" ColumnName="FK_ChangeLogID" />
+                <ScalarProperty Name="ChangeLogDetailsId" ColumnName="ChangeLogDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

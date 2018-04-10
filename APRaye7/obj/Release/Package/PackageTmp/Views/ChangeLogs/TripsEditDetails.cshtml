@@ -1,0 +1,120 @@
+﻿@using APRaye7.App_GlobalResources
+@using APRaye7.Shared
+@model APRaye7.Models.ViewModels.TripVM
+@{
+    ViewBag.Title = "Trip Edit Log";
+}
+@Styles.Render("~/AdminLTE/plugins/datatables/css/styles")
+@Scripts.Render("~/AdminLTE/plugins/datatables/js/scriptjavascript")
+@Scripts.Render("~/Scripts/ChangeLogs/TripsEditLog.js")
+<style>
+    .table {
+        width: 100% !important;
+    }
+
+    .dataTables_scrollHeadInner {
+        width: 100% !important;
+    }
+
+    .dataTables_scrollFootInner {
+        width: 100% !important;
+    }
+</style>
+<div class="row">
+    <div class="col-md-6">
+        <div class="box box-primary">
+
+            <div class="box-body">
+
+                <ul class="list-group list-group-unbordered">
+
+                    @Html.HiddenFor(m => m.ChangeLogId)
+                    <li class="list-group-item">
+                        <b>@Trips_resource.Departure_Time</b> <a class="pull-right">@Html.DisplayFor(m => m.Departure_Time)</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.Seats</b> <a class="pull-right">@Html.DisplayFor(m => m.Seats)</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.Points</b> <a class="pull-right">@Html.DisplayFor(m => m.Points)</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.FK_SourceName</b> <a class="pull-right">@Html.DisplayFor(m => m.FK_SourceName)</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.FK_SourceID</b> <a class="pull-right">@Html.DisplayFor(m => m.FK_SourceID)</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.FK_DestinationName</b> <a class="pull-right">@Html.DisplayFor(m => m.FK_DestinationName)</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.FK_DestinationID</b> <a class="pull-right">@Html.DisplayFor(m => m.FK_DestinationID)</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.FK_DriverName</b> <a class="pull-right">@Html.DisplayFor(m => m.FK_DriverName)</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.FK_DriverID</b> <a class="pull-right">@Html.DisplayFor(m => m.FK_DriverID)</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.Deleted</b> <a class="pull-right">@Model.Deleted.ToString()</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.Created_At</b> <a class="pull-right">@Html.DisplayFor(m => m.Created_At)</a>
+                    </li>
+                    <li class="list-group-item">
+                        <b>@Trips_resource.Updated_At</b> <a class="pull-right">@Html.DisplayFor(m => m.Updated_At)</a>
+                    </li>
+                </ul>
+               
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-push-12">
+        <div class="box" style="width:100%;">
+            @*<div class="box-header">
+
+                    <h3 class="box-title">@Resources.Users_resource.PageTitle</h3>
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="box-body">
+                <table id="TripsEditLog" class="table table-striped table-hover" style="width:100% !important">
+                    <thead>
+
+                        <tr>
+                            <th>@SystemUser_resource.ChangeLogDetailsId</th>
+                            <th>@SystemUser_resource.Field</th>
+                            <th>@SystemUser_resource.PreviousValue</th>
+                            <th>@SystemUser_resource.NewValue</th>
+                            <th>@SystemUser_resource.DetailDate</th>
+
+
+                        </tr>
+
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var dataURL = '@Url.Action("getTripEditLog","ChangeLogs",new { @changeLogId = Model.ChangeLogId })';
+</script>
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/icheck/js/scriptjavascript")
+
+
+}
